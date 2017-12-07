@@ -1,0 +1,68 @@
+{% extends "GestionAdminBundle::layoutadmin.html.twig" %}
+
+{% block bodylayout  %}
+ 
+    <div class="breadcrumbs" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Accueil</a>
+            </li>
+            <li>
+                <a href="#">Ajouter Image</a>
+            </li>
+        </ul><!-- /.breadcrumb -->
+ </div>
+ <div class="page-content">
+        <div class="col-xs-12 col-sm-11 widget-container-col ui-sortable" style="min-height: 210px;">
+            <div class="widget-box ui-sortable-handle" style="opacity: 1; z-index: 0;">
+                <div class="widget-header">
+                    <h5 class="widget-title">Ajouter Image
+                    </h5>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main ace-scroll scroll-disabled" style="position: relative;"><div class="scroll-track scroll-hover" style="display: none;"><div class="scroll-bar" style="top: 0px;"></div></div><div class="scroll-content">
+                        <form  action="{{ path('imageoffre_ajouter', { 'id': app.request.attributes.get("id") }) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+                                <div class="box-body">
+                                      <div   style="display: none;">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Nom hôtel</label>
+                                        <div class="col-sm-4">
+                                    {{ form_widget(form.offre, { 'attr': {'class': 'form-control'} }) }} 
+                                        </div>
+                                    </div>
+                                  
+                                   {{ form_widget(form.etat, { 'value': '0' }) }} 
+                            </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Image</label>
+                                        <div class="col-sm-4">
+                                      {{ form_widget(form.image, { 'attr': {'class': 'form-control'} }) }} 
+                                        </div>
+                                    </div>
+                                 
+                         </div>
+                {{ form_rest(form) }} 
+                <div class="clearfix form-actions">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button class="btn btn-info" type="submit">
+                                            <i class="ace-icon fa fa-check bigger-110"></i>
+                                            Valider
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp;
+                                        <button class="btn" type="reset">
+                                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                                            Annuler
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-content -->
+</form>  
+{% endblock %}

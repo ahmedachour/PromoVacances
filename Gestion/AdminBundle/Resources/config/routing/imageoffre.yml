@@ -1,0 +1,16 @@
+imageoffre:
+    path:     /
+    defaults: { _controller: "GestionAdminBundle:Imageoffre:index" }
+imageoffre_image:
+    path:     /imageoffre/{id}
+    defaults: { _controller: "GestionAdminBundle:Imageoffre:imageoffre" }
+imageoffre_ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: "GestionAdminBundle:Imageoffre:ajouter" }
+    
+imageoffre_suppimage:
+    pattern:  /supprimerimageoffre/{id}
+    defaults: { _controller: GestionAdminBundle:Imageoffre:supprimerimageoffre }
+imageoffre_active:
+    pattern:  /boutonActive/{id}
+    defaults: { _controller: GestionAdminBundle:Imageoffre:boutonActive}

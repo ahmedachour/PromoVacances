@@ -1,0 +1,190 @@
+{% extends "GestionAdminBundle::layout1.html.twig" %}
+
+  {% block contente %}
+<div class="main-content-inner">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Accueil</a>
+            </li>
+
+            <li>
+                <a href="#">Gestion Utilisateur</a>
+            </li>
+            <li class="active">Ajouter Utilisateur</li>
+        </ul><!-- /.breadcrumb -->
+
+        <div class="nav-search" id="nav-search">
+            <form class="form-search">
+                <span class="input-icon">
+                    <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                    <i class="ace-icon fa fa-search nav-search-icon"></i>
+                </span>
+            </form>
+        </div><!-- /.nav-search -->
+    </div>
+
+    <div class="page-content">
+        <div class="col-xs-12 col-sm-8 widget-container-col ui-sortable" style="min-height: 210px;">
+            <div class="widget-box ui-sortable-handle" style="opacity: 1; z-index: 0;">
+                <div class="widget-header">
+                    <h5 class="widget-title">Ajouter Utilisateur</h5>
+
+                    <div class="widget-toolbar">
+                        <div class="widget-menu">
+                            <a href="#" data-action="settings" data-toggle="dropdown">
+                                <i class="ace-icon fa fa-bars"></i>
+                            </a>
+
+
+
+                        </div>
+
+                        <a href="#" data-action="fullscreen" class="orange2">
+                            <i class="ace-icon fa fa-expand"></i>
+                        </a>
+
+                        <a href="#" data-action="reload">
+                            <i class="ace-icon fa fa-refresh"></i>
+                        </a>
+
+                        <a href="#" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+
+                        <a href="#" data-action="close">
+                            <i class="ace-icon fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main ace-scroll scroll-disabled" style="position: relative;"><div class="scroll-track scroll-hover" style="display: none;"><div class="scroll-bar" style="top: 0px;"></div></div><div class="scroll-content">
+                            <form  action="{{ path('user_ajouter')}} " method="POST" class="form-horizontal">
+
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Prenom</label>
+
+                                    <div class="col-sm-9">
+
+                                      {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }} 
+                                    </div>
+                                </div>
+
+
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> Nom</label>
+
+                                    <div class="col-sm-9">
+
+                                      {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}  
+                                    </div>
+                                </div>
+                                
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email </label>
+
+                                    <div class="col-sm-9">
+
+                                     {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mot de Passe  </label>
+
+                                    <div class="col-sm-9">
+
+                                     {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }} 
+                                    </div>
+                                </div>
+                                
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Confermed mot de passe</label>
+
+                                    <div class="col-sm-9">
+
+                                 {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}  
+                                    </div>
+                                </div>
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Role </label>
+
+                                    <div class="col-sm-9">
+
+                             
+                                    <div onclick="myFunction()">
+                                               {{ form_widget(form.roles, { 'id': 'us2' }) }}
+                                    </div>
+                                              
+                                        
+                                    </div>
+                                </div>
+
+                                
+                                
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Télephonne </label>
+
+                                    <div class="col-sm-9">
+
+                                    {{ form_widget(form.teleph, { 'attr': {'class': 'form-control'} }) }} 
+
+          
+
+                                    </div>
+                                </div>
+                                <div id="divCheckbox" style="display: none;">
+                               {{ form_widget(form.userrole, { 'id': 'us' }) }}
+                                </div>
+                                <div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												Enregistrer 
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												Réinitialiser
+											</button>
+										</div>
+									</div>
+                                
+    {{ form_rest(form) }}  
+                            </form>
+                        </div></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div><!-- /.main-content -->
+</form> 
+
+ 
+<script>
+function myFunction() {
+    document.getElementById('us').value = document.getElementById('us2').value;
+}
+</script>
+ {% endblock %}

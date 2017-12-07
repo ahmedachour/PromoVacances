@@ -1,0 +1,12 @@
+package:
+    path:     /
+    defaults: { _controller: "GestionAdminBundle:Package:index" }
+
+package_ajouter:
+    path:     /{id}/ajouter
+    defaults: { _controller: "GestionAdminBundle:Package:ajouter" }
+    
+ 
+package_suppp:
+    path:     /{id}/supppackage
+    defaults: { _controller: "GestionAdminBundle:Package:supppackage" }

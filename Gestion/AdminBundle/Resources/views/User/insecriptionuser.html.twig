@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+    <!--<![endif]-->
+ 
+    <head>
+                  {% include "GestionAdminBundle::header2.html.twig"%}
+    <body class="page page-id-68 page-template page-template-page-templates page-template-with-right-shop-sidebar page-template-page-templateswith-right-shop-sidebar-php wpb-js-composer js-comp-ver-4.12 vc_responsive">        
+        <div id="preloader"><div id="status"></div></div>
+        <div id="page" class="hfeed site">
+               {{ render(controller('GestionAdminBundle:reservation:menu1')) }}
+
+
+
+<div id="main" class="site-main">
+
+                <div class="container ">
+                    <div id="primary" class="content-area">
+
+                        <div class="page-header">
+                            <h1 class="page-title">Inscription</h1>
+                        </div>
+
+
+
+
+                        <div id="content" class="site-content" role="main">
+                            <div id="post-9" class="entry post-9 page type-page status-publish hentry">
+                                <div class="entry-content">
+                                    <div class="vc_row wpb_row vc_row-fluid container"><div class="row">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6"><div class="wpb_wrapper"><div class="woocommerce">
+                                                    <form id="form"  method="POST"  action="{{ path('insecriptionuser_ajouter')}}">
+
+ 
+								<div class="col-xs-12 col-sm-4 col-md-4">
+									<div class="form-group">
+									<label for="last-name">Nom <span class="text-danger">*</span></label>
+									   {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }} 
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4 col-md-4">
+									<div class="form-group">
+									<label for="email-name">Prénom<span class="text-danger">*</span></label>
+									 {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }} 
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4 col-md-4">
+									<div class="form-group">
+									<label for="email-comfirm-name">Email <span class="text-danger">*</span></label>
+									         {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }} 
+									</div>
+								</div>
+                                       
+                                                                      <div class="col-xs-12 col-sm-4 col-md-4">
+									<div class="form-group">
+									<label for="email-comfirm-name">Confirmer Email <span class="text-danger">*</span></label>
+									         {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }} 
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4 col-md-4">
+                                                                    <div class="form-group">
+									<label for="country-code">Téléphone <span class="text-danger">*</span></label>
+                                                                        {{ form_widget(form.teleph, { 'attr': {'class': 'form-control'} }) }} 
+ 								</div>
+                                                                    </div>
+								 
+                                        
+                                                                        <div class="col-xs-12 col-sm-4 col-md-4">
+									<div class="form-group">
+									<label for="phone-number">Mot de passe  <span class="text-danger">*</span></label>
+                                                                          {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }} 
+                                                                        </div>
+								</div>
+                                        
+                                                            <div class="col-xs-12 col-sm-4 col-md-4">
+									<div class="form-group">
+									<label for="phone-number">Confirmer mot de passe  <span class="text-danger">*</span></label>
+                                                                          {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }} 
+                                                                        </div>
+								</div>
+                                        
+                                   
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+									<div class="form-group">
+                                                                      
+                                                                         {{ form_widget(form.enabled) }}
+                                                                        </div>
+								</div>
+                               <div class="cart-collaterals">
+ 
+                                                            <div class="cart_totals ">
+
+
+                                                                 
+
+                                                                <div class="wc-proceed-to-checkout">
+											<button class="checkout-button button alt wc-forward" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												Enregistrer 
+											</button>
+ 
+										</div>
+									</div></div>
+           
+                                                        
+                                
+    {{ form_rest(form) }}  
+                                                                                      
+
+                                  
+
+                                    
+                            </form>
+                                                      
+
+                                                    </div></div></div></div></div>
+                                </div><!-- .entry-content -->
+                            </div><!-- #post -->
+                        </div>
+                    </div><!-- #primary -->
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+ {% include "GestionAdminBundle::footer.html.twig"%}
+
+        </div><!-- #page -->
+
+   {% include "GestionAdminBundle::script2.html.twig"%}
+    </body>
+ 
+</html>
+ 

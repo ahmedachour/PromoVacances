@@ -1,0 +1,193 @@
+{% extends "GestionAdminBundle::layoutadmin.html.twig" %}
+
+{% block bodylayout  %}
+<div class="main-content-inner">
+    <div class="breadcrumbs" id="breadcrumbs">
+
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Accueil</a>
+            </li>
+
+            <li>
+                <a href="#">Gestion Commande</a>
+            </li>
+
+        </ul><!-- /.breadcrumb -->
+  {% for type, messages in app.session.flashbag.all() %}
+    {% for key, message in messages %}
+        <div class="flash-{{ type }}">
+            <div class="alert alert-block alert-success fade in">
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">×</a>
+                <p></p><h4><i class=""></i> Réussi! {{ message|trans({}, 'FosUserBundle') }}</h4><p></p>
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %} 
+
+    </div>
+
+    <div class="page-content">
+
+
+        <div class="widget-body">
+
+            <div class="row">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste de Payement par carte magnétique</h3>
+                    </div><!-- /.box-header -->
+                                           
+                    </br>
+
+                    <div class="box-body"> 
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+
+                                    <th>Nom-Prenom</th>
+                                    <th>Email</th>
+                                    <th>Teleph</th>
+                                    <th>numéro de commande</th>
+                                    <th>Prix Total</th>
+                                    <th>Mode de paiement</th>
+                                    <th>Date de commande</th>
+                          
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                                 {% for entity in entities %} 
+                                <tr>
+
+
+
+
+                                    <td>{{ entity.nom}}-{{ entity.prenom}}</td>
+                                
+                                     <td>{{ entity.username }}</td>
+                                    <td>{{ entity.teleph}}</td>
+
+                                    <td>   {{entity.coupon}}  </td>
+                                    <td> {{entity.prix_payement_total}} </td>
+                                    <td>   {{entity.mode_payement}} </td>
+                                    <td>     {{entity.date_payement}} </td>
+                                       
+                                      <td>---</td>
+                                   
+                                     
+
+                                   
+
+
+ 
+                                </tr>
+                            <div id="my-modal" class="modal fade" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h3 class="smaller lighter blue no-margin"> </h3>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            voulez-vous supprimer ?
+
+                                        </div>
+
+                                        <div class="modal-footer">
+
+                                            <a  title="Supprimer" href="{{ path('suppp', { 'id': entity.id }) }}">
+
+                                                <button class="btn btn-white btn-warning btn-bold">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 orange"></i>
+                                                    Supprimer
+                                                </button>
+                                            </a>
+                                            <button class="btn btn-white btn-default btn-round">
+                                                <i class="ace-icon fa fa-times red2"></i>
+                                                Annuler
+                                            </button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div>
+                    {% endfor %}
+                            </tbody>
+                        </table>
+  <div class="modal fade" id="myModnew" tabindex="-1" role="dialog" aria-labelledby="myModnew" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" >Ajouter Prix Offre</h4>
+                    </div>
+                    <div class="modal-body">
+                         
+                    </div>
+
+
+
+                </div>
+            </div>
+            </div>
+                        
+                        
+                        
+                          <div class="modal fade" id="myModnew1" tabindex="-1" role="dialog" aria-labelledby="myModnew1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" >Détail Offre</h4>
+                    </div>
+                    <div class="modal-body">
+                         
+                    </div>
+
+
+
+                </div>
+            </div>
+            </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+
+        </div>
+    </div>
+</div>
+</div><!-- /.main-content -->
+
+
+</form>  
+  <script type="text/javascript">
+                $('#myModnew').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+                        var id= button.data('whatever')  
+                    var modal = $(this)
+
+                    modal.find('.modal-body').load("http://localhost/projet/web/app_dev.php/package/"+ id +"/ajouter");
+
+
+                })
+
+            </script> 
+            
+             <script type="text/javascript">
+                $('#myModnew1').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+                        var id= button.data('whatever')  
+                    var modal = $(this)
+
+                    modal.find('.modal-body').load("http://localhost/projet/web/app_dev.php/offre/"+ id +"/detail");
+
+
+                })
+
+            </script> 
+{% endblock %}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+    <!--<![endif]-->
+
+    <head>
+
+	   {% include "GestionAdminBundle::header2.html.twig"%}
+    </head>
+
+
+    <body class="single single-product postid-97 woocommerce woocommerce-page wpb-js-composer js-comp-ver-4.12 vc_responsive">        
+        <div id="preloader"><div id="status"></div></div>
+        <div id="page" class="hfeed site">
+           
+          
+   {{ render(controller('GestionAdminBundle:reservation:menu1')) }}
+            <div id="main" class="site-main">
+
+                <div class="container active-sidebar right ">
+                    <div id="primary" class="content-area">
+
+                        <div class="page-header"></div>
+                        <div id="content" class="site-content" role="main">
+
+
+
+
+                            <div id="product-97" class="post-97 product type-product status-publish has-post-thumbnail product_cat-things-to-do product_tag-travel first instock sale featured downloadable virtual taxable shipping-taxable purchasable product-type-variable has-children">
+
+                                <div class="product-main">
+                                    <div class="single-product post-97 product type-product status-publish has-post-thumbnail product_cat-things-to-do product_tag-travel  instock sale featured downloadable virtual taxable shipping-taxable purchasable product-type-variable has-children">
+
+                                        <div class="entry">
+
+                                            <div class="entry-gallery">
+                                                <div id="images-97" 
+                                                     class="images thumbnails " 
+                                                     data-width="845" 
+                                                     data-height="600" 
+                                                     data-vertical="">
+
+                                {% for a in entities1 %}
+
+                                                    <div class="image " 
+                                                         data-popup="#" style='background-image:
+                                                         url("{{ asset('upload/imageoffre/' ~ a.image) }}"); height: 475px;'>
+                                                    </div>{% endfor %}
+
+                                                </div>
+                                            </div>
+
+                                            <div class="entry-data">
+                                                <div class="entry-header"></div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+  <div class="woocommerce-tabs wc-tabs-wrapper">
+                                    <h4>Titre : {% for a in entities %}{{a.titre}} {% endfor%}</h4>
+                                    <h4>Ville : {% for a in entities %}{{a.ville}} {% endfor%}</h4>
+                                    <h4>Région : {% for a in entities %}{{a.region}} {% endfor%}</h4>
+                                    <div class="woocommerce-Tabs-panel ">
+
+
+                                        <p><em>{% for a in entities %}{{a.description2|raw}}{%endfor%}</em></p>
+                                     
+ 
+                                        <div class="section-title-wr"></div>
+                                 </div>
+                                 
+
+                                </div>
+   
+ 
+
+
+
+                            </div><!-- #product-97 -->
+
+
+
+                        </div><!-- #content -->
+                    </div><!-- #primary -->
+                    <div id="tertiary" class="sidebar-container shop" role="complementary">
+                        <div class="sidebar-inner">
+                            <div class="widget-area clearfix">
+                                <div id="vc_widget-25" class="widget widget_vc_widget">
+                                    <div class="scoped-style" data-content-id="474">
+                                        <div class="vc_row wpb_row vc_row-fluid product-panels vc_custom_1441612243620"><div class="row"><div class="h-padding-0 wpb_column vc_column_container vc_col-sm-12"><div class="wpb_wrapper"><div class="entry product panel product-summary post-97 type-product status-publish has-post-thumbnail product_cat-things-to-do product_tag-travel first instock sale featured downloadable virtual taxable shipping-taxable purchasable product-type-variable has-children" >
+
+                                                            <div class="field "><h1 itemprop="name" class="product_title entry-title">
+                                                                     {% for a in entities %}{{a.titre}}{%endfor%}</h1>
+                                                            </div><div class="field "><div itemprop="description">
+                                                                    <p>{% for a in entities %}{{a.description|raw}}{%endfor%}</p>
+                                                                </div>
+                                                            </div><div class="field ">
+                                                                
+                                                                
+                                                                <div itemprop="offers" >
+
+                                                                    <p class="price"><span class="prefix"></span> <del><span class="woocommerce-Price-amount amount"><span class="currency"><span class="woocommerce-Price-currencySymbol">&#36;</span></span>250</span><span class="dash">&ndash;</span><span class="woocommerce-Price-amount amount"><span class="currency"><span class="woocommerce-Price-currencySymbol">&#36;</span></span>500</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="currency"><span class="woocommerce-Price-currencySymbol">&#36;</span></span>d55</span><span class="dash">&ndash;</span><span class="woocommerce-Price-amount amount"><span class="currency"><span class="woocommerce-Price-currencySymbol">&#36;</span></span>444</span></ins></p>
+
+
+                                                                    <link itemprop="availability" />
+
+                                                                </div>
+                                                            </div><div class="field ">
+ 
+                                                                   
+                                <table class="variations" cellspacing="0">
+            <tbody>
+                                            
+                <tr>  <td><h3>Choisissez votre offre:</h3></td></tr>
+                          {% for a in entities2 %}                   
+                <tr>
+                  
+                       <td>
+                                                                            
+                          <div class="radio" onchange=myFunction()>
+                              <input type="radio" name="cheked"  id="{{a.idpack}}"  value="{{a.idpack}}"  >
+                              <label for="{{a.idpack}}">{{a.pack}}</label>
+<span class="price"><del><span class="woocommerce-Price-amount amount">
+            <span class="currency"><span class="woocommerce-Price-currencySymbol"> </span></span>{{a.prix|number_format(2, '.', ',') }} DT </span></del> <ins><span class="woocommerce-Price-amount amount"><span class="currency"><span class="woocommerce-Price-currencySymbol"></span></span>{{a.ancien_prix|number_format(2, '.', ',') }} DT</span></ins></span></div>
+                                                                           
+                     </td>
+                    </tr>{%endfor%}     
+             
+                            </tbody>
+        </table>
+
+                                                                    <div class="single_variation_wrap">
+
+                                                                        <div class="woocommerce-variation single_variation"></div>
+                                                                        <div class="woocommerce-variation-add-to-cart variations_button">
+                                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                                             <form class="variations_form cart" method="post"  action="{{path('payment_ajouter')}}">
+
+                                                     <button type="submit" id="click"  disabled ="true"  class="single_add_to_cart_button button alt">J’achéte</button>
+                                                                  <div   style="display: none;">
+                                         {% for a in entities %}
+                                           <input type="text" name="id" id="id"   value="{{a.id}}"   /> 
+                                       <input  type="text" name="nbre_pers" id="nbre_pers"    value="{{a.nbre_pers}}"   /> 
+                                       
+                                            
+                                        {%endfor%}
+                                      
+                                   <input  type="text" name="idpack" id="idpack" value=""    /> 
+                                  
+
+                                    </div>   </form> 
+                                                                            
+                                             {% else  %}
+                                          <form class="variations_form cart" method="post"  action="{{path('reservation_ajouter')}}">
+
+                                                                            <button type="submit"  name="click"  disabled ="true" id="click" class="single_add_to_cart_button button alt">J’achéte</button>
+                                                                  <div   style="display: none;">
+                                          {% for a in entities %}
+                                           <input type="text" name="id" id="id"   value="{{a.id}}"   /> 
+                                        <input  type="text" name="nbre_pers" id="nbre_pers"    value="{{a.nbre_pers}}"   /> 
+                                       
+                                            
+                                        {%endfor%}
+                                      
+                                       <input  type="text" name="idpack" id="idpack" value=""    /> 
+
+                                    </div>   </form>  {% endif  %}
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                             
+
+                                                            </div><div class="field ">        <div  align="center">
+                                                                     {% for a   in entities %}
+                                                                         {{a.tripadivisor|raw}}
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div><div class="field ">        <div class="time-left">
+                                                                    <div class="call-to-action">DÉPÊCHEZ-VOUS! TEMPS RESTANT:</div>
+                                                                    {% for a   in entities %}
+                                                                    <div class="time" data-time='{{a.date_fin|date('Y/m/d H:i:s')}}'>
+                                                                        <div class="days"><span class="count">0</span><span class="title">j.</span></div>
+                                                                        <div class="hours"><span class="count">0</span><span class="title">h.</span></div>
+                                                                        <div class="minutes"><span class="count">0</span><span class="title">m.</span></div>
+                                                                        <div class="seconds"><span class="count">0</span><span class="title">s.</span></div>
+                                                                    </div>{% endfor %}
+                                                                </div>
+                                                            </div> </div></div></div></div></div>
+                                         
+                                        
+                                         <div class="vc_row wpb_row vc_row-fluid product-panels vc_custom_1441612243620">
+                                            <div class="row"><div class="h-padding-0 wpb_column vc_column_container vc_col-sm-12">
+                                                    <div class="wpb_wrapper">
+                                                        
+                                                        <div class="entry product panel   post-97 type-product status-publish has-post-thumbnail product_cat-things-to-do product_tag-travel  instock sale featured downloadable virtual taxable shipping-taxable purchasable product-type-variable has-children" itemscope itemtype="http://schema.org/Product">
+
+                                                            <div class="field ">
+                                                                 {% for a   in entities %}
+                                                                    {{a.maps|raw}}
+                                                                 {% endfor %}
+                                                                    
+                                                               </div></div></div></div></div></div>
+                                        
+                                    </div></div>
+                                
+                                
+
+
+
+
+
+                            </div><!-- .widget-area -->
+                        </div><!-- .sidebar-inner -->
+                    </div><!-- #tertiary -->
+                </div>
+
+
+            </div><!-- #main -->
+
+          {% include "GestionAdminBundle::footer.html.twig"%}
+
+        </div><!-- #page -->
+
+       <script>
+function myFunction() { 
+    
+  
+  
+    for (i = 0; i < document.getElementsByName('cheked').length; i++) {
+    
+     
+     if (document.getElementsByName("cheked")[i].checked) {
+               document.getElementById("click").disabled = false;
+      var c= document.getElementsByName("cheked")[i].value; 
+          document.getElementById("idpack").value=c;
+    }
+     }
+}
+
+
+
+</script>
+
+  {% include "GestionAdminBundle::script2.html.twig"%}
+    </body>
+
+    <!-- Mirrored from azexo.com/kupon/product/wyndham-garden-at-palmas-del-mar-puerto-rico/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 14:54:31 GMT -->
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Database Caching 21/144 queries in 0.076 seconds using disk
+
+ Served from: azexo.com @ 2017-02-21 07:14:06 by W3 Total Cache -->

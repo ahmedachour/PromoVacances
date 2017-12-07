@@ -1,0 +1,176 @@
+ 
+<html>
+ 
+    <head>
+                  {% include "GestionAdminBundle::header2.html.twig"%}
+    <body class="page page-id-68 page-template page-template-page-templates page-template-with-right-shop-sidebar page-template-page-templateswith-right-shop-sidebar-php wpb-js-composer js-comp-ver-4.12 vc_responsive">        
+        <div id="preloader"><div id="status"></div></div>
+        <div id="page" class="hfeed site">
+         {{ render(controller('GestionAdminBundle:reservation:menu1')) }}
+
+
+
+            <div id="main" class="site-main">
+
+                <div class="container ">
+                    <div id="primary" class="content-area">
+
+                        <div class="page-header">
+                            <h1 class="page-title">Contact</h1>
+                        </div>
+
+
+
+
+                        <div id="content" class="site-content" role="main">
+                            <div id="post-9" class="entry post-9 page type-page status-publish hentry">
+                                <div class="entry-content">
+                                    <div class="vc_row wpb_row vc_row-fluid container"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="wpb_wrapper"><div class="woocommerce">
+                                                 
+<form class="variations_form cart" method="POST"  action="{{path('paymentupdate')}}">
+
+
+                                                            <table class="shop_table shop_table_responsive cart" cellspacing="0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="product-remove">&nbsp;</th>
+                                                                        <th class="product-thumbnail">&nbsp;</th>
+                                                                        <th class="product-name">Product</th>
+                                                                        <th class="product-price">Price</th>
+                                                                        <th class="product-quantity">Quantity</th>
+                                                                        <th class="product-subtotal">Total</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                        {% for a in entities %}
+                                                                    <tr class="cart_item">
+
+                                                                        <td class="product-remove"> 
+                                                                            <a href="{{ path('suppreservation_suppp', { 'id': a.id }) }}" class="remove" title="Remove this item" data-product_id="97" data-product_sku="">×</a>	
+                                                                        </td>
+
+                                                                        <td class="product-thumbnail">
+                                                                            <a href="#">
+                                                                                <img width="220" height="150" src="{{ asset('upload/image/' ~ a.image) }}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="deal-11">
+                                                                            </a>					</td>
+
+                                                                        <td class="product-name" data-title="Product">
+                                                                            <a href="#">
+                                                                                {{a.titre}} </a><dl class="variation">
+                                                                                <dt class="variation-Variation">Variation:</dt>
+                                                                                <dd class="variation-Variation"><p>Family Fireplace Suite</p>
+                                                                                </dd>
+                                                                                <dt class="variation-SoldBy">Sold By:</dt>
+                                                                                <dd class="variation-SoldBy"><p>Kupon</p>
+                                                                                </dd>
+                                                                            </dl>
+                                                                        </td>
+                                                                   
+                                                                        <td class="product-price" data-title="Price">
+                                                                            <span class="woocommerce-Price-amount amount"><span class="currency"><span class="woocommerce-Price-currencySymbol"></span></span>{{a.prix_total}} DT</span>					</td>
+
+                                                                        <td class="product-quantity" data-title="Quantity">
+
+                                                                            <div class="quantity">
+                                                                                <input type="number" step="1" min="0" name="nbre_pers" value="{{a.nbre_pers}}" title="Qty" class="input-text qty text" size="4">
+                                                                          
+
+                                                                            <input type=" " id="prix" name="prix" value="{{a.prix_total}}">
+                                                                            
+                                                                           
+                                                                            </div>
+                                                                        </td>
+                                                                        
+                                                                          {% set foo = a.nbre_pers * a.prix_total %}
+                                                                        <td class="product-subtotal" data-title="Total">
+                                                                            <span class="woocommerce-Price-amount amount"><span class="currency">
+                                                                                    <span class="woocommerce-Price-currencySymbol"></span></span>{{foo}} DT</span>
+                                                                        </td>
+                                                                    </tr>
+{%endfor%}
+
+                                                                    <tr>
+
+                                                                        <td colspan="6" class="actions">
+
+                                                                            <input type="submit" class="button"   value="Update Cart" disabled="">
+
+                                                                        </td>
+                                                                 
+                                                                    </tr>
+                                                               
+                                                                  
+                                                                </tbody>
+                                                            </table>
+
+        </form>
+                                                     
+
+                                                        <div class="cart-collaterals">
+
+                                                            <div class="cart_totals ">
+
+
+                                                                <h2>Cart Totals</h2>
+
+                                                                <table cellspacing="0" class="shop_table shop_table_responsive">
+
+                                                                    <tbody><tr class="cart-subtotal">
+                                                                            <th>Subtotal</th>
+                                                                            <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="currency"><span class="woocommerce-Price-currencySymbol">$</span></span>1,957</span></td>
+                                                                        </tr>
+
+
+
+
+
+
+                                                                        <tr class="order-total">
+                                                                            <th>Total</th>
+                                                                            <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="currency"><span class="woocommerce-Price-currencySymbol">$</span></span>1,957</span></strong> </td>
+                                                                        </tr>
+
+
+                                                                    </tbody></table>
+
+                                                                <div class="wc-proceed-to-checkout">
+
+                                                                    <a href="http://azexo.com/kupon/checkout/" class="checkout-button button alt wc-forward">
+                                                                        Proceed to Checkout</a>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div></div></div></div></div>
+                                </div><!-- .entry-content -->
+                            </div><!-- #post -->
+                        </div>
+                    </div><!-- #primary -->
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div><!-- #main -->
+
+ {% include "GestionAdminBundle::footer.html.twig"%}
+
+        </div><!-- #page -->
+
+   {% include "GestionAdminBundle::script2.html.twig"%}
+    </body>
+ 
+</html>
+ 

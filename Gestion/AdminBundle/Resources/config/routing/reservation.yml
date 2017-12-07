@@ -1,0 +1,20 @@
+reservation:
+    path:     /
+    defaults: { _controller: "GestionAdminBundle:reservation:index" }
+
+consulter:
+    path:     /consulter
+    defaults: { _controller: "GestionAdminBundle:Reservation:consulter" }  
+
+
+payment_ajouter:
+    path:     /valider
+    defaults: { _controller: "GestionAdminBundle:reservation:valider" }  
+
+menu1:
+    path:     /menu1
+    defaults: { _controller: "GestionAdminBundle:reservation:menu1" }  
+    
+suppreservation_suppp:
+    path:     /{id}/suppreservation
+    defaults: { _controller: "GestionAdminBundle:reservation:suppreservation" }

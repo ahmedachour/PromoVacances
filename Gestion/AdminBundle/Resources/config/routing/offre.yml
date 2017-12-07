@@ -1,0 +1,108 @@
+offre:
+    path:     /
+    defaults: { _controller: "GestionAdminBundle:Offre:index" }
+facture:
+    path:     /facture
+    defaults: { _controller: "GestionAdminBundle:Offre:facture" }
+  
+offre_ajouter:
+    path:     /ajouter
+    defaults: { _controller: "GestionAdminBundle:Offre:ajouter" }
+
+offre_listeoffre:
+    path:     /listeoffre
+    defaults: { _controller: "GestionAdminBundle:Offre:listeoffre" }
+    
+offre_modifierimage:
+    path:     /{id}/modifierimage
+    defaults: { _controller: "GestionAdminBundle:Offre:modifierimage" }
+update:
+    path:     /{id}/update
+    defaults: { _controller: "GestionAdminBundle:Offre:update" }    
+offre_modifier:
+    path:     /{id}/modifier
+    defaults: { _controller: "GestionAdminBundle:Offre:modifier" }
+    
+offr_active:
+    pattern:  /Active/{id}
+    defaults: { _controller: GestionAdminBundle:Offre:Active }
+    
+    
+offr_detailpayementValider:
+    pattern:  /detailpayementValider/{id}
+    defaults: { _controller: GestionAdminBundle:Offre:detailpayementValider }
+
+facturecoupon:
+    pattern:  /facturecoupon/{couponarticle}/{coupon}
+    defaults: { _controller: GestionAdminBundle:Offre:facturecoupon }
+    
+    
+payement_Activepayment:
+    pattern:  /Activepayment/{id}
+    defaults: { _controller: GestionAdminBundle:Offre:Activepayment }   
+    
+Activepayment2:
+    pattern:  /Activepayment2/{id}
+    defaults: { _controller: GestionAdminBundle:Offre:Activepayment2 }
+    
+Activepayment3:
+    pattern:  /Activepayment3/{id}
+    defaults: { _controller: GestionAdminBundle:Offre:Activepayment3 } 
+    
+suppp:
+    pattern:  /suppp/{id}
+    defaults: { _controller: GestionAdminBundle:Offre:suppp }
+    
+detail_offre:
+    pattern:  /detailoffre/{id}
+    defaults: { _controller: GestionAdminBundle:Offre:detailoffre }
+detail:
+    pattern:  /{id}/detail
+    defaults: { _controller: GestionAdminBundle:Offre:detail }
+reservation_ajouter:
+    path:     /insecription
+    defaults: { _controller: "GestionAdminBundle:Offre:insecription" }
+    requirements: { _method: POST}    
+    
+confirmation:
+    pattern:  /confirmation
+    defaults: { _controller: GestionAdminBundle:Offre:confirmation }
+payment:
+    pattern:  /payment
+    defaults: { _controller: GestionAdminBundle:Offre:payment }
+    
+payementvalider:
+    path:     /payementvalider
+    defaults: { _controller: "GestionAdminBundle:Offre:payementvalider" }
+    requirements: { _method: GET|POST}   
+paymentparbureau:
+    path:     /paymentparbureau
+    defaults: { _controller: "GestionAdminBundle:Offre:paymentparbureau" }
+    requirements: { _method: POST} 
+   
+paymentparcarte:
+    path:     /paymentparcarte
+    defaults: { _controller: "GestionAdminBundle:Offre:paymentparcarte" }
+    requirements: { _method: POST} 
+    
+    
+paymentupdate:
+    path:     /paymentupdate
+    defaults: { _controller: "GestionAdminBundle:Offre:paymentupdate" }
+    requirements: { _method: POST}   
+
+mescoupons:
+    path:     /mescoupons
+    defaults: { _controller: "GestionAdminBundle:Offre:mescoupons" } 
+detailmescoupons:
+    path:     /detailmescoupons/{coupon}
+    defaults: { _controller: "GestionAdminBundle:Offre:detailmescoupons" }   
+listepayementbureauNonValider:
+    path:     /listepayementbureauNonValider
+    defaults: { _controller: "GestionAdminBundle:Offre:listepayementbureauNonValider" }   
+listepayementbureauValider:
+    path:     /listepayementbureauValider
+    defaults: { _controller: "GestionAdminBundle:Offre:listepayementbureauValider" } 
+listepayementparcarteValider:
+    path:     /listepayementparcarteValider
+    defaults: { _controller: "GestionAdminBundle:Offre:listepayementparcarteValider" } 

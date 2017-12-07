@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>PrixPayement</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Prixpayementtotal</th>
+                <td>{{ entity.prixPayementTotal }}</td>
+            </tr>
+            <tr>
+                <th>Flag_valid</th>
+                <td>{{ entity.flagvalid }}</td>
+            </tr>
+            <tr>
+                <th>Flag_payement</th>
+                <td>{{ entity.flagpayement }}</td>
+            </tr>
+            <tr>
+                <th>Qte</th>
+                <td>{{ entity.qte }}</td>
+            </tr>
+            <tr>
+                <th>Coupon</th>
+                <td>{{ entity.coupon }}</td>
+            </tr>
+            <tr>
+                <th>Modepayement</th>
+                <td>{{ entity.modePayement }}</td>
+            </tr>
+            <tr>
+                <th>Datepayement</th>
+                <td>{{ entity.datePayement }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('prixpayement') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('prixpayement_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

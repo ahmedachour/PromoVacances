@@ -1,0 +1,124 @@
+
+
+  <table class="table table-bordered table-striped">
+
+                                                    <thead>
+                                                        <tr style="color:white;background-color:grey">
+                                                         
+                                                            <th>Prix </th>
+                                                            <th> Ancien Prix</th>
+                                                              <th> Package</th>
+                                                         <th>Supprimer</th>
+
+                                                        </tr>
+                                                    </thead>
+
+
+                                                    <tbody >
+ {% for entity in entities  %}
+                                                        <tr>
+                                                           
+                                                            <td>{{ entity.prix}}
+                                                                    </td>
+                                                        <td>  
+                                                                        {{ entity.ancien_prix}}
+                                                                         
+                                                                        
+                                                                    </td>
+                                                                      <td>  
+                                                                        {{ entity.pack}}
+                                                                         
+                                                                        
+                                                                    </td>
+                                                                <td>      
+                                                  <a  title="Supprimer" href="{{ path('package_suppp', { 'id': entity.idpack }) }}">
+                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                            </a>
+                                                                         
+                                                                        
+                                                                    </td>
+                                                                   
+                                                        </tr>
+  {% endfor %}
+                                                    </tbody>
+
+
+                                                </table></div>
+
+                        <form  action="{{ path('package_ajouter', { 'id': app.request.attributes.get("id") }) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Prix</label>
+
+                                    <div class="col-sm-6">
+
+                                      {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }} 
+                                    </div>
+                                </div>
+ 
+
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> Ancien Prix</label>
+
+                                  <div class="col-sm-6">
+
+                                      {{ form_widget(form.ancienPrix, { 'attr': {'class': 'form-control'} }) }}  
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-3">Package</label>
+
+                                  <div class="col-sm-6">
+
+                                      {{ form_widget(form.pack, { 'attr': {'class': 'form-control'} }) }}  
+                                    </div>
+                                </div>
+                                
+                                   <div   style="display: none;">
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">offre </label>
+
+                                   <div class="col-sm-6">
+
+                                     {{ form_widget(form.offre, { 'attr': {'class': 'form-control'} }) }}
+                                    </div>
+                                </div>
+                                  
+                             {{ form_widget(form.etatp, { 'attr': {'class': 'form-control'} }) }}
+                            {% for entity in entities  %}
+                                     {% if entity.offre_id is not  empty  %}
+                                        {{ form_widget(form.etatp, { 'value': '1' }) }} 
+                                  
+                             
+                                 
+                                        {%endif%}
+                              
+                                     
+                            {%endfor%}
+                                
+                        
+                            
+                                 </div>
+                                
+                                
+                                <div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-primary" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												Enregistrer 
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												Réinitialiser
+											</button>
+										</div>
+									</div>
+                                
+    {{ form_rest(form) }}  
+                            </form>
+ 
+ 
+ 

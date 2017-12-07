@@ -1,0 +1,4 @@
+prixpayement:
+    path:     /
+    defaults: { _controller: "GestionAdminBundle:PrixPayement:index" }
+ 

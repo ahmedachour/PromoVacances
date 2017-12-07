@@ -1,0 +1,85 @@
+{% extends "GestionAdminBundle::layoutadmin.html.twig" %}
+
+{% block bodylayout  %}
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#">Accueil</a>
+        </li>
+        <li>
+            <a href="#">Modifier Image Offre</a>
+        </li>
+    </ul><!-- /.breadcrumb -->
+</div>
+<div class="page-content">
+    <div class="col-xs-12 col-sm-11 widget-container-col ui-sortable" style="min-height: 210px;">
+        <div class="widget-box ui-sortable-handle" style="opacity: 1; z-index: 0;">
+            <div class="widget-header">
+                <h5 class="widget-title">Modifier Image Offre
+                </h5>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main ace-scroll scroll-disabled" style="position: relative;"><div class="scroll-track scroll-hover" style="display: none;"><div class="scroll-bar" style="top: 0px;"></div></div><div class="scroll-content">
+<form  action="{{ path('offre_modifierimage', { 'id': app.request.attributes.get("id") }) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+
+ 
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Titre</label>
+                                        <div class="col-sm-4">
+                                          {{ form_widget(form.image, { 'attr': {'name': 'image'} }) }}
+                                        </div>
+                                        
+                                    </div>
+                                  
+
+                                </div>
+                               {{ form_rest(form) }} 
+                                <div class="clearfix form-actions">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button class="btn btn-info" type="submit">
+                                            <i class="ace-icon fa fa-check bigger-110"></i>
+                                            Valider
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp;
+                                        <button class="btn" type="reset">
+                                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                                            Annuler
+                                        </button>
+                                    </div>
+                                </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.main-content -->
+</form> 
+
+
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    var today = dd + '/' + mm + '/' + yyyy;
+    document.getElementById("t1").value = today;
+
+ document.getElementById("image1").value;=document.getElementById("image1").value;
+ 
+
+</script>
+{% endblock %}

@@ -1,0 +1,216 @@
+{% extends "GestionAdminBundle::layoutadmin.html.twig" %}
+
+{% block bodylayout  %}
+<div class="main-content-inner">
+   
+
+   	<div class="page-content">
+					 
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="space-6"></div>
+
+								<div class="row">
+									<div class="col-sm-10 col-sm-offset-1">
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-large">
+												<img src="{{ asset('assets/img/logo.png') }} " style="width: 160px" alt="logo">
+												<h3 class="widget-title grey lighter" style=" padding-left: 110px;">
+													   {% for b in entitiesa %}
+                                                                                             
+                                                                                                       Voucher N° {{b.couponarticle}}
+                                                                                                           {% endfor %}
+                                                                                                         
+												</h3>
+
+												<div class="widget-toolbar no-border invoice-info">
+													<span class="invoice-info-label">Facture:</span>
+													<span class="red"> {% for a in entities1 %}
+                                                                                                           {{a.coupon}}
+                                                                                                            <div   style="display: none;">
+                                                                                                                  <input id="textQR" type="text" value="{{a.coupon}}" style="width:80%" />   
+                                                                                                            </div>
+                                                                                                                                        {% endfor %}
+                                                                                                          
+                                                                                                        </span>
+
+													<br />
+													<span class="invoice-info-label">Date:</span>
+													<span class="blue" id="date1"> </span>
+												</div>
+
+												<div class="widget-toolbar hidden-480" onclick="imprimer_page()">
+													 
+                                                                                                    <div id="qrcode" style="width:80px; height:110px;"></div>
+                                                                                                   
+												</div>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main padding-24">
+													<div class="row">
+															<div class="row">
+																<div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
+																	<b>Partenaires</b>
+																</div>
+															</div>
+
+															<div>
+																<ul class="list-unstyled spaced">
+                                                                                                                                     {% for a in entitiesa %}
+                                                                                                                                    						<li>
+																		 
+                                                                                                                                                <h3 class="widget-title grey lighter">
+                                                                                                                                                 {{a.nom}}</h3>
+                                                                                                                                              
+																	</li>
+ 
+																	<li>
+																		<i class="ace-icon fa fa-caret-right blue"></i>
+                                                                                                                                             Adresse : {{a.adresse}} 
+                                                                                                                                                
+																	</li>
+
+																	<li>
+																		<i class="ace-icon fa fa-caret-right blue"></i>
+                                                                                                                                               Telephone : {{a.telephone}}
+                                                                                                                                                
+																	</li>
+
+											
+
+																	<li class="divider"></li>
+
+																	 
+                                                                                                                                        {% endfor %}
+																</ul>
+															</div>
+                                                                                                                        <div class="row">
+																<div class="col-xs-11 label label-lg label-success arrowed-in arrowed-right">
+																	<b>L'offre Comprend</b>
+																</div>
+															</div>
+
+															<div>
+																<ul class="list-unstyled spaced">
+                                                                                                                                     {% for a in entities %}
+                                                                                                                                    	<li>
+																		 
+                                                                                                                                               <i class="ace-icon fa fa-caret-right blue"></i>
+                                                                                                                                                 {{a.titre}}
+                                                                                                                                              
+																	</li>
+ 
+																	<li>
+																		<i class="ace-icon fa fa-caret-right blue"></i>
+                                                                                                                                               Description : {{a.description}} 
+
+																	</li>
+                                                                                                                                         <li>{{a.description2}}</li>                                                
+                                                                                                                                      <li></br><i class="ace-icon fa fa-caret-right blue"></i> Offre valable 1 mois à partir de la date de la commande</br>Réservation à l'avance avant 24h minimum</br>
+
+                                                                                                                                      Réservation par tel: appelez le numéro se trouvant sur votre coupon</br>
+                                                                                                                                       Pour plus de renseignements: appelez le 21 822 090 - 71 964 207</li>    
+																	<li class="divider"></li>
+
+																	 
+                                                                                                                                        {% endfor %}
+																</ul>
+															</div>
+													 
+													</div><!-- /.row -->
+
+													<div class="space"></div>
+
+
+
+													<div class="row">
+														<div class="col-sm-5 pull-right">
+															<h4 class="pull-right">
+																Montant Total :
+																<span class="red">
+                                                                                                                                    {% for a in entities1 %}
+                                                                                                                                    {{a.prix_payement_total|number_format(2, '.', ',') }}  DT {% endfor %}</span>
+															</h4>
+														</div>
+													</div>
+
+													<div class="space-6"></div>
+													<div class="well">
+													Nous vous remercions d'avoir choisi les produits  promo vacance. Nous croyons que vous serez satisfait par nos services.
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+</div>
+</div><!-- /.main-content -->
+
+
+</form>  
+ <script>
+ 
+  var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    var today = dd+'-'+mm+'-'+yyyy;
+  
+        document.getElementById("date1").innerHTML = today;
+     
+    
+
+</script>
+<script type="text/javascript">
+function imprimer_page(){
+  window.print();
+}
+</script>
+
+
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 100,
+	height : 100
+});
+
+function makeCode () {		
+	var elText = document.getElementById("textQR");
+	
+	if (!elText.value) {
+		alert("Input a text");
+		elText.focus();
+		return;
+	}
+	
+	qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#textQR").
+	on("blur", function () {
+		makeCode();
+	}).
+	on("keydown", function (e) {
+		if (e.keyCode == 13) {
+			makeCode();
+		}
+	});
+</script>
+{% endblock %}

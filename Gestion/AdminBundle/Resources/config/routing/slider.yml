@@ -1,0 +1,18 @@
+ 
+slider:
+    path:     /
+    defaults: { _controller: "GestionAdminBundle:Slider:index" }
+slider_ajouter:
+    path:     /ajouter
+    defaults: { _controller: "GestionAdminBundle:Slider:ajouter" }
+    
+slider_suppslider:
+    pattern:  /supprimerslider/{id}
+    defaults: { _controller: GestionAdminBundle:Slider:supprimerslider }
+slider_active:
+    pattern:  /Active/{id}
+    defaults: { _controller: GestionAdminBundle:Slider:Active }
+    
+slider_afiiche:
+    pattern:  /sliders
+    defaults: { _controller: GestionAdminBundle:Slider:sliders }

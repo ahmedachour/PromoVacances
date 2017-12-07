@@ -1,0 +1,188 @@
+{% extends "GestionAdminBundle::layout.html.twig" %}
+
+  {% block content %}
+<div class="main-content-inner">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Home</a>
+            </li>
+
+            <li>
+                <a href="#">Forms</a>
+            </li>
+            <li class="active">Form Elements 2</li>
+        </ul><!-- /.breadcrumb -->
+
+        <div class="nav-search" id="nav-search">
+            <form class="form-search">
+                <span class="input-icon">
+                    <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                    <i class="ace-icon fa fa-search nav-search-icon"></i>
+                </span>
+            </form>
+        </div><!-- /.nav-search -->
+    </div>
+
+    <div class="page-content">
+        <div class="col-xs-12 col-sm-8 widget-container-col ui-sortable" style="min-height: 210px;">
+            <div class="widget-box ui-sortable-handle" style="opacity: 1; z-index: 0;">
+                <div class="widget-header">
+                    <h5 class="widget-title">Default Widget Box</h5>
+
+                    <div class="widget-toolbar">
+                        <div class="widget-menu">
+                            <a href="#" data-action="settings" data-toggle="dropdown">
+                                <i class="ace-icon fa fa-bars"></i>
+                            </a>
+
+
+
+                        </div>
+
+                        <a href="#" data-action="fullscreen" class="orange2">
+                            <i class="ace-icon fa fa-expand"></i>
+                        </a>
+
+                        <a href="#" data-action="reload">
+                            <i class="ace-icon fa fa-refresh"></i>
+                        </a>
+
+                        <a href="#" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+
+                        <a href="#" data-action="close">
+                            <i class="ace-icon fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main ace-scroll scroll-disabled" style="position: relative;"><div class="scroll-track scroll-hover" style="display: none;"><div class="scroll-bar" style="top: 0px;"></div></div><div class="scroll-content">
+                           <form  action="{{ path('gestion_admin_moduser', { 'id': app.request.attributes.get("id") }) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+      
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Prenom</label>
+
+                                    <div class="col-sm-9">
+
+                                      {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }} 
+                                    </div>
+                                </div>
+
+
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> Nom</label>
+
+                                    <div class="col-sm-9">
+
+                                      {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}  
+                                    </div>
+                                </div>
+                                
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email </label>
+
+                                    <div class="col-sm-9">
+
+                                     {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                                    </div>
+                                </div>
+                                
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+                                    <div class="col-sm-9">
+
+                                     {{ form_widget(form.enabled, { 'attr': {'class': 'form-control'} }) }} 
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mot de Passe  </label>
+
+                                    <div class="col-sm-9">
+
+                                     {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }} 
+                                    </div>
+                                </div>
+                                
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Confermed mot de passe</label>
+
+                                    <div class="col-sm-9">
+
+                                 {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}  
+                                    </div>
+                                </div>
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Role </label>
+
+                                    <div class="col-sm-9">
+
+                                    {{ form_widget(form.role, { 'attr': {'class': 'form-control'} }) }} 
+
+          
+
+                                    </div>
+                                </div>
+
+                                
+                                
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Télephonne </label>
+
+                                    <div class="col-sm-9">
+
+                                    {{ form_widget(form.teleph, { 'attr': {'class': 'form-control'} }) }} 
+
+          
+
+                                    </div>
+                                </div>
+                                {{ form_rest(form) }}  
+                                
+                                <div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												Submit
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												Reset
+											</button>
+										</div>
+									</div>
+                                
+  
+                            </form>
+                        </div></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div><!-- /.main-content -->
+</form>  {% endblock %}

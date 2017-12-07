@@ -1,0 +1,329 @@
+                                                                   
+<html>
+ 
+    <head>
+                  {% include "GestionAdminBundle::header2.html.twig"%}
+    <body class="page page-id-68 page-template page-template-page-templates page-template-with-right-shop-sidebar page-template-page-templateswith-right-shop-sidebar-php wpb-js-composer js-comp-ver-4.12 vc_responsive">        
+        <div id="preloader"><div id="status"></div></div>
+        <div id="page" class="hfeed site">
+          {{ render(controller('GestionAdminBundle:reservation:menu1')) }}
+
+
+            <div id="main" class="site-main">
+
+                <div class="container ">
+                    <div id="primary" class="content-area">
+
+                        <div class="page-header">
+                            <h1 class="page-title">Panier</h1>
+                        </div>
+
+
+
+
+                        <div id="content" class="site-content" role="main">
+                            <div id="post-9" class="entry post-9 page type-page status-publish hentry">
+                                <div class="entry-content">
+                                    <div class="vc_row wpb_row vc_row-fluid container"><div class="row">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                <div class="wpb_wrapper"><div class="woocommerce">
+                                                 
+  <form class="variations_form cart" method="post"  action="{{path('payment')}}">
+ 
+                                                                      {% if entities|length == 0 %}
+                         
+                            <td colspan="4"><center>Aucun articles dans votre panier</center></td>
+                      {% else  %} 
+                  
+                              
+
+                                                            <table class="shop_table shop_table_responsive cart" cellspacing="0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="product-remove">&nbsp;</th>
+                                                                        <th class="product-thumbnail">&nbsp;</th>
+                                                                        <th class="product-name">Produit</th>
+                                                                        <th class="product-price">Prix</th>
+                                                                        <th class="product-quantity">Quantité</th>
+                                                                        <th class="product-subtotal">Totale</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                     
+                                                        {% for a in entities %}
+                           
+                                                                    <tr class="cart_item">
+
+                                                                        <td class="product-remove"> 
+                                                                            <a href="{{ path('suppreservation_suppp', { 'id': a.id }) }}" class="remove" title="Remove this item" data-product_id="97" data-product_sku="">×</a>	
+                                                                        </td>
+
+                                                                        <td class="product-thumbnail">
+                                                                            <a href="#">
+                                                                                <img width="220" height="150" src="{{ asset('upload/image/' ~ a.image) }}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="deal-11">
+                                                                            </a>					</td>
+
+                                                                        <td class="product-name" data-title="Product">
+                                                                            <a href="#">
+                                                                                {{a.titre}} </a><dl class="variation">
+                                                                               
+                                                                           
+                                                                              
+                                                                            </dl>
+                                                                        </td>
+                                                                   
+                                                                        <td class="product-price" data-title="Price">
+                                                                                        <span class="woocommerce-Price-amount amount"><span class="currency">
+                                                                                                <span class="woocommerce-Price-currencySymbol">
+                                                                                
+                                                                                    </span></span>{{a.prix|number_format(2, '.', ',') }} DT </span>					</td>
+
+                                                                        <td class="product-quantity" data-title="Quantity" >
+
+                                                                            <div class="quantity"  >
+                                                                                    <input type="number" step="1" min="0" name="panier1[{{ a.id}}]" 
+                                                                                       value={{a.nbre_pers_reserve}} title="Qty" class="input-text qty text" size="4">
+                                                                         
+ <div   style="display: none;"> 
+                                                                            <input type="TEXT" id="prix" name="prix" value="{{a.prix}}">
+                                                                             <input type="TEXT" id="prixTOTAL" name="prixTOTAL" value="{{a.prix_total}}">  
+ </div>
+                                                                             
+                                                                            </div>
+                                                                        </td>
+                                                                        
+                                                                          {% set foo = a.nbre_pers * a.prix_total %}
+                                                                        <td class="product-subtotal" data-title="Total">
+                                                                            <span class="woocommerce-Price-amount amount"><span class="currency">
+                                                                                    <span class="woocommerce-Price-currencySymbol"></span></span>
+                                                                                   
+                                                                                    
+                                                                                        <p id="total">{{a.prix_total}} DT</p>
+                            
+                                                                                   
+                                                                             
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                    {%endfor%}
+
+                                                                    <tr>
+
+                                                                        <td colspan="6" class="actions" >
+
+                                                                            <input type="submit" class="button"  value="mise à jour" />
+                                                                              
+                                                                        </td>
+                                                                 
+                                                                    </tr>
+                                                               
+                                                                  
+                                                                </tbody>
+                                                            </table>
+      
+       
+      
+      
+      
+
+       
+  </form>
+
+                                                        <div class="cart-collaterals">
+
+                                                            <div class="cart_totals ">
+
+
+                                                                <h2>Totale du panier</h2>
+
+                                                                <table cellspacing="0" class="shop_table shop_table_responsive">
+
+                                                                    <tbody>
+
+
+
+
+
+
+                                                                        <tr class="order-total">
+                                                                            <th>Totale</th>
+                                                                            <td data-title="Total"><strong><span class="woocommerce-Price-amount amount">
+                                                                                        <span class="currency"><span class="woocommerce-Price-currencySymbol"></span>
+                                                                                            
+                                                                                        </span> {% for a in entitiestt %} {{a.TOTAL_MONTANT|number_format(2, '.', ',') }} {% endfor %} DT</span></strong> </td>
+                                                                        </tr>
+
+
+                                                                    </tbody></table>
+ 
+
+                                                            </div>
+
+
+                                                                <table>
+
+                                                                
+
+
+
+
+ 
+
+                                                                             
+                                                                                    <tr>
+                                                                               
+                                                                                         <td >
+                                                                                  <div class="radio" onchange="myFunction()">
+                                                                                      <input type="radio" name="cheked" value="Family Fireplace Suite" id="test" ><label for="test">paiement  au bureau</label>
+                                                                                  
+                                                                                    </td> 
+                                                                                       <td >
+                                                                                                 <div class="radio" onchange="myFunction()">
+                                                                                    <input type="radio" name="cheked" value="Family Fireplace Suite" id="testc" ><label for="testc">paiement  Par Carte</label>
+                                                                                </div>
+                                                                                 
+                                                                                </td>  
+                                                                           
+                                                                        </tr>
+                                                                        
+                                                                   </table>
+                                                                   <form   method="post"  action="{{path('paymentparbureau')}}">
+                                                                    <div   style="display: none;">  
+                                                                     {% for a in entitiestt %} <input type="text"   name="ptixtotal" id="ptixtotal" value="{{a.TOTAL_MONTANT}}" />  {% endfor %}
+                                                                        {% for a in entitiesnb %} <input type="text"   name="nbre" id="nbre" value="{{a.nbre_persreserve}}" />  {% endfor %} 
+                                                                        <input type="text"   name="ran" id="ran" value="" /> 
+                                                                       <input type="text"   name="date1" id="date1" value="" /> 
+                                                                       
+                                                                        {% for a in entities%}
+                                                                       
+                                                                         <input type="text"   name="panierid[{{a.id}}]" 
+                                                                                       value={{a.idpack}}   > 
+                                                                            {% endfor %}
+                                                                    </div>
+                                                                          <div  id="dip"   style="display: none;">  
+                                                                        <input type="submit" class="button"  value="Valider" />
+                                                                          </div>
+                                                                   </form>    
+                                                                           <form   method="post"  action="{{path('paymentparcarte')}}">
+                                                                    <div   style="display: none;">  
+                                                                     {% for a in entitiestt %} <input type="text"   name="ptixtotal" id="ptixtotal" value="{{a.TOTAL_MONTANT}}" />  {% endfor %}
+                                                                        {% for a in entitiesnb %} <input type="text"   name="nbre" id="nbre" value="{{a.nbre_persreserve}}" />  {% endfor %} 
+                                                                        <input type="text"   name="ran" id="ran1" value="" /> 
+                                                                       <input type="text"   name="date1" id="date2" value="" /> 
+                                                                       
+                                                                        {% for a in entities%}
+                                                                       
+                                                                         <input type="text"   name="panierid[{{a.id}}]" 
+                                                                                       value={{a.idpack}}   > 
+                                                                            {% endfor %}
+                                                                    </div>
+                                                                         <div  id="dip1"  style="display: none;">  
+                                                                            <input type="submit" class="button"  value="Valider" />
+                                                                           </div>
+                                                                   </form> 
+                                                                            
+                                                                           
+                                                                       {% endif %}      
+                                                        </div>
+
+                                                    </div></div></div></div></div>
+                                </div><!-- .entry-content -->
+                            </div><!-- #post -->
+                        </div>
+                    </div><!-- #primary -->
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div><!-- #main --><script>
+document.cookie = 'name=David' ;
+</script>
+       
+            
+            
+  <script>
+             
+       function myFunction() {
+         
+         var nbreper= document.getElementById("nbre_pers").value;
+          var prixtt= document.getElementById("prix").value;
+          
+            var variable2 = parseInt(nbreper) * parseInt(prixtt);
+          
+            
+              document.getElementById("total").innerHTML=variable2+" DT";
+            document.getElementById("prixTOTAL").value=variable2;
+    }
+</script>  
+
+<script type="text/javascript">
+
+    document.getElementById('ran').value = Math.floor((Math.random() * 10000) + 1);
+   document.getElementById('ran1').value = Math.floor((Math.random() * 10000) + 1);
+
+
+</script>
+<script>
+ 
+  var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    var today = dd+'-'+mm+'-'+yyyy;
+  
+        document.getElementById("date1").value = today;
+      document.getElementById("date2").value = today;
+    
+
+</script>
+ {% include "GestionAdminBundle::footer.html.twig"%}
+
+        </div><!-- #page -->
+
+           <script>
+function myFunction() { 
+    
+  
+  
+  if (document.getElementById("test").checked) {
+ document.getElementById('dip').style.display = "inline";
+  document.getElementById("dip1").style.display = "none";
+  
+  }
+  
+  if (document.getElementById("testc").checked) {
+      document.getElementById('dip').style.display = "none";
+ document.getElementById("dip1").style.display = "inline";
+  }
+}
+
+
+
+</script>
+    
+   {% include "GestionAdminBundle::script.html.twig"%}
+    </body>
+ 
+</html>
+ 

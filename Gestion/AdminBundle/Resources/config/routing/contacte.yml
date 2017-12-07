@@ -1,0 +1,30 @@
+contacte:
+    path:     /
+    defaults: { _controller: "GestionAdminBundle:Contacte:index" }
+
+contacte_show:
+    path:     /{id}/show
+    defaults: { _controller: "GestionAdminBundle:Contacte:show" }
+
+contacte_new:
+    path:     /new
+    defaults: { _controller: "GestionAdminBundle:Contacte:new" }
+
+contacte_create:
+    path:     /create
+    defaults: { _controller: "GestionAdminBundle:Contacte:create" }
+    requirements: { _method: post }
+
+contacte_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GestionAdminBundle:Contacte:edit" }
+
+contacte_update:
+    path:     /{id}/update
+    defaults: { _controller: "GestionAdminBundle:Contacte:update" }
+    requirements: { _method: post|put }
+
+contacte_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GestionAdminBundle:Contacte:delete" }
+    requirements: { _method: post|delete }

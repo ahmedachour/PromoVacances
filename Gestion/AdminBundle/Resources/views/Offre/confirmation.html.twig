@@ -1,0 +1,238 @@
+{% extends "GestionAdminBundle::layoutadmin.html.twig" %}
+
+{% block bodylayout  %}
+<div class="main-content-inner">
+    <div class="breadcrumbs" id="breadcrumbs">
+
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Accueil</a>
+            </li>
+
+            <li>
+                <a href="#">Gestion Offre</a>
+            </li>
+
+        </ul><!-- /.breadcrumb -->
+  {% for type, messages in app.session.flashbag.all() %}
+    {% for key, message in messages %}
+        <div class="flash-{{ type }}">
+            <div class="alert alert-block alert-success fade in">
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">×</a>
+                <p></p><h4><i class=""></i> Réussi! {{ message|trans({}, 'FosUserBundle') }}</h4><p></p>
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %} 
+
+    </div>
+
+    <div class="page-content">
+
+
+        <div class="widget-body">
+
+            <div class="row">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste Offre</h3>
+                    </div><!-- /.box-header -->
+                    <a href="{{ path('offre_ajouter') }}"> 
+
+                        <button class="btn btn-white btn-info btn-bold">
+                            <i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
+                            Ajouter Offre
+                        </button></a>
+                    </br>                        
+                    </br>
+
+                    <div class="box-body"> 
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                
+                                    <th>Téléph</th>
+                                    <th>etat_payment</th>
+                                    <th>etat_valid</th>
+                                    <th>pack</th>
+                               
+                                        <th> Prix</th>
+                                         <th> Détail</th>
+                                    <th>Etat</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                                 {% for entity in entities %} 
+                                <tr>
+
+
+
+
+                                    <td>{{ entity.date_debut|date('Y-m-d') }}</td>
+                                    <td>{{ entity.date_fin|date('Y-m-d') }}</td>
+                                    
+                                    <td>{{ entity.titre }}</td>
+                                    <td>{{ entity.type_offre }}</td>
+
+                                    <td>{{ entity.nbre_pers }}</td>
+                                    <td>{{ entity.reduction }}</td>
+                                   
+                                    
+                                                     <td><button type="button" class="btn btn-purple btn-xs" data-toggle="modal" data-target="#myModnew" data-whatever="{{ entity.id }}">
+              <i class="ace-icon fa fa-wrench  bigger-110 icon-only"></i>Prix
+            </button>
+                                    
+                                    <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModnew1" data-whatever="{{ entity.id }}">
+              <i class="ace-icon glyphicon glyphicon-list"></i>Détail
+            </button>
+                                    
+                                    
+                                    </td>
+                                    <td>  <a class=""  title="Activer la banière" href="{{ path('offr_active', { 'id': entity.id }) }}">
+
+
+		   {%if entity.etat == 1 %} <span class="label label-success arrowed">Offre Valide</span>
+{%else%} <span class="label label-warning">
+                                                <i class="ace-icon fa fa-exclamation-triangle bigger-120"></i>
+                                                En attente
+                                            </span> {% endif %} </a></td>
+
+
+
+                                    <td>
+                                        <div class="hidden-sm hidden-xs action-buttons">
+                                            <a  class="green" title="Modifier" href="{{ path('offre_modifier', { 'id': entity.id }) }}">
+                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                            </a>
+                                             <a href="#my-modal" role="button" title="Modifier" class="red" data-toggle="modal">
+                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                            </a>
+
+
+                                            <a  class="blue" title="Modifier" href="{{ path('imageoffre_ajouter', { 'id': entity.id }) }}">
+                                                <i class="ace-icon fa fa-camera"></i>
+                                            </a>
+                                           
+                                            <a  class="blue" title="Modifier" href="{{ path('imageoffre_image', { 'id': entity.id }) }}">
+                                                <span class="label label-lg label-pink arrowed-right">Image</span>
+                                            </a>
+
+                                        </div>
+
+
+
+                                    </td>
+                                </tr>
+                            <div id="my-modal" class="modal fade" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h3 class="smaller lighter blue no-margin"> </h3>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            voulez-vous supprimer ?
+
+                                        </div>
+
+                                        <div class="modal-footer">
+
+                                            <a  title="Supprimer" href="{{ path('suppp', { 'id': entity.id }) }}">
+
+                                                <button class="btn btn-white btn-warning btn-bold">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 orange"></i>
+                                                    Supprimer
+                                                </button>
+                                            </a>
+                                            <button class="btn btn-white btn-default btn-round">
+                                                <i class="ace-icon fa fa-times red2"></i>
+                                                Annuler
+                                            </button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div>
+                    {% endfor %}
+                            </tbody>
+                        </table>
+  <div class="modal fade" id="myModnew" tabindex="-1" role="dialog" aria-labelledby="myModnew" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" >Ajouter Prix Offre</h4>
+                    </div>
+                    <div class="modal-body">
+                         
+                    </div>
+
+
+
+                </div>
+            </div>
+            </div>
+                        
+                        
+                        
+                          <div class="modal fade" id="myModnew1" tabindex="-1" role="dialog" aria-labelledby="myModnew1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" >Détail Offre</h4>
+                    </div>
+                    <div class="modal-body">
+                         
+                    </div>
+
+
+
+                </div>
+            </div>
+            </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+
+        </div>
+    </div>
+</div>
+</div><!-- /.main-content -->
+
+
+</form>  
+  <script type="text/javascript">
+                $('#myModnew').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+                        var id= button.data('whatever')  
+                    var modal = $(this)
+
+                    modal.find('.modal-body').load("http://localhost/projet/web/app_dev.php/package/"+ id +"/ajouter");
+
+
+                })
+
+            </script> 
+            
+             <script type="text/javascript">
+                $('#myModnew1').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+                        var id= button.data('whatever')  
+                    var modal = $(this)
+
+                    modal.find('.modal-body').load("http://localhost/projet/web/app_dev.php/offre/"+ id +"/detail");
+
+
+                })
+
+            </script> 
+{% endblock %}

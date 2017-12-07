@@ -1,0 +1,244 @@
+{% extends "GestionAdminBundle::layoutadmin.html.twig" %}
+
+{% block bodylayout  %}
+<div class="main-content-inner">
+    <div class="breadcrumbs" id="breadcrumbs">
+
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Accueil</a>
+            </li>
+
+            <li>
+                <a href="#">Gestion Offre</a>
+            </li>
+
+        </ul><!-- /.breadcrumb -->
+  {% for type, messages in app.session.flashbag.all() %}
+    {% for key, message in messages %}
+        <div class="flash-{{ type }}">
+            <div class="alert alert-block alert-success fade in">
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">×</a>
+                <p></p><h4><i class=""></i> Réussi! {{ message|trans({}, 'FosUserBundle') }}</h4><p></p>
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %} 
+
+    </div>
+
+   	<div class="page-content">
+					 
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="space-6"></div>
+
+								<div class="row">
+									<div class="col-sm-10 col-sm-offset-1">
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-large">
+                                                                                            <img src="{{ asset('assets/img/logo.png') }} " style="width: 160px" alt="logo">
+												<h3 class="widget-title grey lighter" style=" padding-left: 200px;">
+													
+                                                                                                        Facture client 
+												</h3>
+
+												<div class="widget-toolbar no-border invoice-info">
+													<span class="invoice-info-label">Facture:</span>
+													<span class="red"> {% for a in entities1 %}
+                                                                                                           {{a.coupon}}{% endfor %} </span>
+
+													<br />
+													<span class="invoice-info-label">Date:</span>
+													<span class="blue" id="date1"> </span>
+												</div>
+
+												<div class="widget-toolbar hidden-480">
+													<a href="#">
+														<i class="ace-icon fa fa-print"></i>
+													</a>
+												</div>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main padding-24">
+													<div class="row">
+														<div class="col-sm-6">
+															<div class="row">
+																<div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
+																	<b>Infos Offre</b>
+																</div>
+															</div>
+
+															<div>
+																<ul class="list-unstyled spaced">
+                                                                                                                                     {% for a in entities %}
+                                                                                                                                    						<li>
+																		 
+                                                                                                                                                <h3 class="widget-title grey lighter">
+                                                                                                                                                 {{a.titre}}</h3>
+                                                                                                                                              
+																	</li>
+ 
+																	<li>
+																		<i class="ace-icon fa fa-caret-right blue"></i>
+                                                                                                                                             Région : {{a.region}} 
+                                                                                                                                                
+																	</li>
+
+																	<li>
+																		<i class="ace-icon fa fa-caret-right blue"></i>
+                                                                                                                                                Ville : {{a.ville}}
+                                                                                                                                                
+																	</li>
+
+											
+
+																	<li class="divider"></li>
+
+																	<li>
+																		<i class="ace-icon fa fa-caret-right blue"></i>
+																		Paymant Info
+																	</li>
+                                                                                                                                        {% endfor %}
+																</ul>
+															</div>
+														</div><!-- /.col -->
+
+														<div class="col-sm-6">
+															<div class="row">
+																<div class="col-xs-11 label label-lg label-success arrowed-in arrowed-right">
+																	<b>Infos client</b>
+																</div>
+															</div>
+
+															<div>
+																<ul class="list-unstyled  spaced">
+                                                                                                                                    {% for a in entities %}
+																	<li>
+																		<i class="ace-icon fa fa-caret-right green"></i> {{a.nom}}
+																	</li>
+
+																	<li>
+																		<i class="ace-icon fa fa-caret-right green"></i>Zip Code
+																	</li>
+
+																	<li>
+																		<i class="ace-icon fa fa-caret-right green"></i>State, Country
+																	</li>
+
+																	<li class="divider"></li>
+
+																	<li>
+																		<i class="ace-icon fa fa-caret-right green"></i>
+																		Contact Info
+																	</li>
+                                                                                                                                          {% endfor %}
+																</ul>
+															</div>
+														</div><!-- /.col -->
+													</div><!-- /.row -->
+
+													<div class="space"></div>
+
+													<div>
+														<table class="table table-striped table-bordered">
+											  <thead>
+                                                                            <tr>
+
+                                                                                <th>numéro de commande</th>
+                                                                                <th class="hidden-xs">-------</th>
+                                                                                <th>Nbre Personne</th>
+                                                                                <th>Prix Total</th>
+                                                                                <th>Mode de paiement</th>
+                                                                                <th>Date de commande</th>
+ 
+                                                                       
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+
+                                                        {% for a in entities1 %}
+
+                                                                            <tr class="cart_item">
+                                                                                 <td > {{a.coupon}}   </td>
+                                                                                   <td>  
+                                                                                  <table class="table table-striped table-bordered">
+                                                                                            <tr  class="hidden-xs"><td class="hidden-xs">Pack</td><td  class="hidden-xs">Offre</td><td  class="hidden-xs">Coupon</td></tr>
+                                                                                           {% for b in entitiesa %}
+                                                                                            <tr  class="hidden-xs"><td>{{b.pack}}</td><td>{{b.titre}}</td><td class="hidden-xs"> <a href="{{ path('facturecoupon', { 'couponarticle': b.couponarticle ,'coupon': a.coupon }) }}" target=_blank>{{b.couponarticle}}</a></td></tr>
+                                                                                                {% endfor %}
+                                                                                       </table>
+                                                                                   </td>
+                                                                                      <td>  {{a.qte}}  </td>
+                                                                                 <td>  {{a.prix_payement_total|number_format(2, '.', ',') }}  DT </td>
+                                                                                  <td> {{a.mode_payement}}  </td>
+                                                                                <td> {{a.date_payement}}  </td>
+                                                                              
+
+                                                                               
+                                                                            </tr>
+                                                                {% endfor %}
+                                                                        </tbody>
+                                                                    </table>
+													</div>
+
+													<div class="hr hr8 hr-double hr-dotted"></div>
+
+													<div class="row">
+														<div class="col-sm-5 pull-right">
+															<h4 class="pull-right">
+																Total amount :
+																<span class="red">
+                                                                                                                                    {% for a in entities1 %}
+                                                                                                                                    {{a.prix_payement_total|number_format(2, '.', ',') }}  DT {% endfor %}</span>
+															</h4>
+														</div>
+														<div class="col-sm-7 pull-left"> Extra Information </div>
+													</div>
+
+													<div class="space-6"></div>
+													<div class="well">
+													Nous vous remercions d'avoir choisi les produits  promo vacance. Nous croyons que vous serez satisfait par nos services.
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+</div>
+</div><!-- /.main-content -->
+
+
+</form>  
+ <script>
+ 
+  var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    var today = dd+'-'+mm+'-'+yyyy;
+  
+        document.getElementById("date1").innerHTML = today;
+     
+    
+
+</script>
+{% endblock %}

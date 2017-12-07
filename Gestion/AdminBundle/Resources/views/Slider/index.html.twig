@@ -1,0 +1,93 @@
+{% extends "GestionAdminBundle::layoutadmin.html.twig" %}
+
+{% block bodylayout  %}
+<div class="main-content-inner">
+    <div class="breadcrumbs" id="breadcrumbs">
+
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Accueil</a>
+            </li>
+
+            <li>
+                <a href="#">Gestion Slider</a>
+            </li>
+
+        </ul><!-- /.breadcrumb -->
+
+
+    </div>
+
+    <div class="page-content">
+
+
+        <div class="widget-body">
+
+            <div class="row">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Slider  </h3>
+                    </div><!-- /.box-header -->
+ <a href="{{ path('slider_ajouter') }}"> 
+
+                        <button class="btn btn-white btn-info btn-bold">
+                            <i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
+                            Ajouter Slider
+                        </button></a>
+                    </br>                        
+                    </br>
+
+                    <div class="box-body"> 
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- PAGE CONTENT BEGINS -->
+                                <div>
+                                    <ul class="ace-thumbnails clearfix">
+
+ {% for a in entities %} 
+                                        <li>
+                                            <a href="{{ asset('upload/slider/' ~ a.image) }}" data-rel="colorbox">
+                                                <img width="150" height="150" alt="150x150" src="{{ asset('upload/slider/' ~ a.image) }}" />
+                                            </a>
+
+                                            <div class="tools tools-right">
+
+                                                <a class="btn btn-small"  title="Activer la banière" href="{{ path('slider_active', { 'id': a.id }) }}">
+
+
+		   {%if a.etat == 1 %}  <i class="ace-icon fa fa-lock"></i> {%else%} <i class="icon-remove"></i> 
+                                                    <i class="ace-icon fa fa-unlock"></i> {% endif %} </a>
+
+
+
+
+
+                                                <a     class="red" title="Supprimer" href="{{ path('slider_suppslider', { 'id': a.id }) }}">
+                                                    <i class="ace-icon fa fa-times red"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                        {% endfor %}
+
+
+                                    </ul>
+                                </div><!-- PAGE CONTENT ENDS -->
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+
+        </div>
+    </div>
+</div>
+</div><!-- /.main-content -->
+
+
+</form>  
+{% endblock %}

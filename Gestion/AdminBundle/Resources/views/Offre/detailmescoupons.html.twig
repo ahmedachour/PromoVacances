@@ -1,0 +1,130 @@
+ 
+<html>
+
+    <head>
+                  {% include "GestionAdminBundle::header2.html.twig"%}
+    <body class="page page-id-68 page-template page-template-page-templates page-template-with-right-shop-sidebar page-template-page-templateswith-right-shop-sidebar-php wpb-js-composer js-comp-ver-4.12 vc_responsive">        
+        <div id="preloader"><div id="status"></div></div>
+        <div id="page" class="hfeed site">
+           {{ render(controller('GestionAdminBundle:reservation:menu1')) }}
+
+
+
+            <div id="main" class="site-main">
+
+                <div class="container ">
+                    <div id="primary" class="content-area">
+
+                        <div class="page-header">
+                            <h1 class="page-title">Détail Commande</h1>
+                        </div>
+
+
+
+
+                        <div id="content" class="site-content" role="main">
+                            <div id="post-9" class="entry post-9 page type-page status-publish hentry">
+                                <div class="entry-content">
+                                    <div class="vc_row wpb_row vc_row-fluid container"><div class="row">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                <div class="wpb_wrapper"><div class="woocommerce">
+
+
+                                                        <form>
+
+                                                            <div class="cart-collaterals">
+
+                                                                <div class="cart_totals ">
+
+ 
+                                                                     
+                                                                    <table class="shop_table shop_table_responsive cart" cellspacing="0">
+                                                                        <thead>
+                                                                            <tr>
+
+                                                                                <th class="product-quantity">numéro de commande</th>
+                                                                                <th class="product-quantity">package</th>
+                                                                                <th class="product-quantity">Prix Total</th>
+                                                                                <th class="product-quantity">Mode de paiement</th>
+                                                                                <th class="product-subtotal">Date de commande</th>
+
+                                                                                <th class="product-subtotal">Status</th>
+                                                                       
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+
+                                                        {% for a in entities1 %}
+
+                                                                            <tr class="cart_item">
+                                                                                 <td > {{a.coupon}}   </td>
+                                                                                   <td>  
+                                                                                       <table>
+                                                                                           <tr><td>Pack</td><td>Offre</td></tr>
+                                                                                           {% for b in entities %}
+                                                                                             <tr><td>{{b.pack}}</td><td>{{b.titre}}</td></tr>
+                                                                                                {% endfor %}
+                                                                                       </table>
+                                                                                   </td>
+                                                                                 <td>  {{a.prix_payement_total|number_format(2, '.', ',') }} DT  </td>
+                                                                                  <td> {{a.mode_payement}}  </td>
+                                                                                <td> {{a.date_payement}}  </td>
+                                                                                <td>  {%if a.flag_payement == 1 %} <span class="label label-success arrowed">Offre Valide</span>
+                                                                        {%else%} <span class="label label-warning">
+                                                                                        <i class="ace-icon fa fa-exclamation-triangle bigger-120"></i>
+                                                                                        En attente
+                                                                                    </span> {% endif %}  </td>
+
+                                                                               
+                                                                            </tr>
+                                                                {% endfor %}
+                                                                        </tbody>
+                                                                    </table>
+
+
+
+
+                                                                </div>
+
+
+
+                                                            </div>
+                                                         </form>
+                                    
+                                                    </div></div></div></div></div>
+                                </div><!-- .entry-content -->
+                            </div><!-- #post -->
+                        </div>
+                    </div><!-- #primary -->
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div><!-- #main -->
+            <script>
+                < script type = "text/javascript" >
+                        function imprimer_page() {
+                            window.print();
+                        }
+            </script>
+ {% include "GestionAdminBundle::footer.html.twig"%}
+
+        </div><!-- #page -->
+
+
+
+   {% include "GestionAdminBundle::script.html.twig"%}
+    </body>
+
+</html>

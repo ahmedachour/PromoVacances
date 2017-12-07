@@ -1,0 +1,199 @@
+{% extends "GestionAdminBundle::layoutadmin.html.twig" %}
+
+{% block bodylayout  %}
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#">Accueil</a>
+        </li>
+        <li>
+            <a href="#">Ajouter Offre</a>
+        </li>
+    </ul><!-- /.breadcrumb -->
+</div>
+<div class="page-content">
+    <div class="col-xs-12 col-sm-11 widget-container-col ui-sortable" style="min-height: 210px;">
+        <div class="widget-box ui-sortable-handle" style="opacity: 1; z-index: 0;">
+            <div class="widget-header">
+                <h5 class="widget-title">Ajouter Offre
+                </h5>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main ace-scroll scroll-disabled" style="position: relative;"><div class="scroll-track scroll-hover" style="display: none;"><div class="scroll-bar" style="top: 0px;"></div></div><div class="scroll-content">
+                        <form class="form-horizontal" action="{{ path('offre_ajouter')}} " {{ form_enctype(form) }} method="POST" >
+                            <div class="box-body">
+                                <div class="form-group">
+
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Titre</label>
+                                        <div class="col-sm-4">
+                                          {{ form_widget(form. titre, { 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Nom</label>
+                                        <div class="col-sm-4">
+                                          {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Adresse</label>
+                                        <div class="col-sm-4">
+                                          {{ form_widget(form.adresse, { 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Telephone</label>
+                                        <div class="col-sm-4">
+                                          {{ form_widget(form.telephone, { 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+                                    </div>
+                                <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Catégories</label>
+                                        <div class="col-sm-4">
+                                          {{ form_widget(form. typeOffre, { 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+                                    </div>
+                     <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Tripadivisor</label>
+                                        <div class="col-sm-4">
+                                          {{ form_widget(form. tripadivisor, { 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+                                    </div>
+                                    <div   style="display: none;">
+
+                                           {{ form_widget(form.etat, { 'value': '0' }) }}  
+                                              {{ form_widget(form.etatOffre, { 'value': '0' }) }} 
+                                        
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Région</label>
+                                        <div class="col-sm-4">
+                                    {{ form_widget(form.region, { 'attr': {'class': 'form-control'} }) }} 
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Ville</label>
+                                        <div class="col-sm-4">
+                                        {{ form_widget(form.ville, { 'attr': {'class': 'form-control'} }) }}   
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Maps</label>
+                                        <div class="col-sm-4">
+                                     {{ form_widget(form.maps, { 'attr': {'class': 'form-control'} }) }}   
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3">Réduction</label>
+                                        <div class="col-sm-4">
+                                        {{ form_widget(form.reduction, { 'attr': {'class': 'form-control'} }) }}   
+                                        </div>
+                                    </div>
+                                  
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Nombre Personne</label>
+                                        <div class="col-sm-4">
+                                        {{ form_widget(form.nbrePers, { 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Date Début</label>
+                                        <div class="col-sm-4">
+                                        {{ form_widget(form.dateDebut, { 'attr': {'class': 'form-control'} }) }}   
+                                        </div>
+                                    </div>
+                                      <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Date Offre</label>
+                                        <div class="col-sm-4">
+                                        {{ form_widget(form.dateOffre, { 'attr': {'class': 'form-control'} }) }}   
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Date Fin</label>
+                                        <div class="col-sm-4">
+                                         {{ form_widget(form.dateFin, { 'attr': {'class': 'form-control'} }) }}   
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> image</label>
+                                        <div class="col-sm-4" >
+                                        {{ form_widget(form.image, { 'attr': {'class': 'form-control'} }) }}   
+                                        </div>
+                                    </div>
+
+
+                                         <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Description</label>
+                                        <div class="col-sm-6">
+                                        {{ form_widget(form.description) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> Description2</label>
+                                        <div class="col-sm-6">
+                                         {{ form_widget(form.description2) }}
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                               {{ form_rest(form) }} 
+                                <div class="clearfix form-actions">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button class="btn btn-info" type="submit">
+                                            <i class="ace-icon fa fa-check bigger-110"></i>
+                                            Valider
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp;
+                                        <button class="btn" type="reset">
+                                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                                            Annuler
+                                        </button>
+                                    </div>
+                                </div>
+                        </form>
+
+                    </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.main-content -->
+</form> 
+
+
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    var today = dd + '/' + mm + '/' + yyyy;
+    document.getElementById("t1").value = today;
+
+
+
+</script>
+{% endblock %}

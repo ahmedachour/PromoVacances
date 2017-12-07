@@ -1,0 +1,56 @@
+user:
+    path:     /
+    defaults: { _controller: "GestionAdminBundle:User:index" }
+
+user_show:
+    path:     /{id}/show
+    defaults: { _controller: "GestionAdminBundle:User:show" }
+
+user_new:
+    path:     /new
+    defaults: { _controller: "GestionAdminBundle:User:new" }
+
+user_create:
+    path:     /create
+    defaults: { _controller: "GestionAdminBundle:User:create" }
+    requirements: { _method: post }
+
+user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GestionAdminBundle:User:edit" }
+
+user_update:
+    path:     /{id}/update
+    defaults: { _controller: "GestionAdminBundle:User:update" }
+    requirements: { _method: post|put }
+
+user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GestionAdminBundle:User:delete" }
+    requirements: { _method: post|delete }
+user_ajouter:
+    path:     /insecription
+    defaults: { _controller: "GestionAdminBundle:User:insecription" }
+
+gestion_admin_active:
+    pattern:  /active/{id}
+    defaults: { _controller: GestionAdminBundle:User:boutonActive }
+
+gestion_admin_moduser:
+    path:  /modifier/{id}
+    defaults: { _controller: "GestionAdminBundle:User:modifier" }
+  
+gestion_admin_moduser1:
+    path:  /modifieruser/{id}
+    defaults: { _controller: "GestionAdminBundle:User:modifieruser" }     
+
+gestion_admin_suppProd:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: GestionAdminBundle:User:suppprod }
+insecriptionuser_ajouter:
+    path:     /insecriptionuser
+    defaults: { _controller: "GestionAdminBundle:User:insecriptionuser" }
+connexion:
+    pattern:  /connexion
+    defaults: { _controller: GestionAdminBundle:User:connexion }
+

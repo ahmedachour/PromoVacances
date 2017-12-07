@@ -1,0 +1,86 @@
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <div class="col-xs-12 col-sm-12">
+
+  {% for entity in entities %} 
+                <div class="profile-user-info profile-user-info-striped">
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> Date Début </div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.date_debut }}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> Date Fin </div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.date_fin }}</span>
+                        </div>
+                    </div>
+                     
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> Titre </div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.titre }}</span>
+                        </div>
+                    </div>
+                   
+                    
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> Nbr Personne </div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.nbre_pers }}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> ville /Région </div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.ville }}/{{ entity.region }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> Type Offre </div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.type_offre  }}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> Réduction </div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.reduction}}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> description</div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.description|raw }}</span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name"> description2 </div>
+
+                        <div class="profile-info-value">
+                            <span class="editable editable-click" id="username">{{ entity.description2|raw  }}</span>
+                        </div>
+                    </div>
+                  
+                     
+                     {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div></div>

@@ -1,0 +1,40 @@
+gestion_admin_contacte:
+    resource: "@GestionAdminBundle/Resources/config/routing/contacte.yml"
+    prefix:   /contacte
+
+gestion_admin_prixpayement:
+    resource: "@GestionAdminBundle/Resources/config/routing/prixpayement.yml"
+    prefix:   /prixpayement
+
+gestion_admin_reservation:
+    resource: "@GestionAdminBundle/Resources/config/routing/reservation.yml"
+    prefix:   /reservation
+
+gestion_admin_slider:
+    resource: "@GestionAdminBundle/Resources/config/routing/slider.yml"
+    prefix:   /slider
+
+gestion_admin_package:
+    resource: "@GestionAdminBundle/Resources/config/routing/package.yml"
+    prefix:   /package
+
+gestion_admin_imageoffre:
+    resource: "@GestionAdminBundle/Resources/config/routing/imageoffre.yml"
+    prefix:   /imageoffre
+
+gestion_admin_offre:
+    resource: "@GestionAdminBundle/Resources/config/routing/offre.yml"
+    prefix:   /offre
+
+ 
+gestion_admin_user:
+    resource: "@GestionAdminBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+gestion_admin_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: GestionAdminBundle:Default:index }
+application:
+    pattern:  /application
+    defaults: { _controller: "GestionAdminBundle:User:application" }
+ 
